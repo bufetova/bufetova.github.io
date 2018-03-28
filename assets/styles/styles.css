@@ -1,0 +1,343 @@
+* {
+    /*outline: 1px solid red;*/
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    padding: 10px;
+    color: #808080;
+    font-size: 35px;
+}
+
+hr {
+    width: 50px;
+    border: 1px solid #808080;
+}
+
+.topbar {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    background: grey;
+    z-index: 1;
+    margin-top: -18px;
+}
+
+.logo {
+    float: left;
+    margin-left: 10px;
+    margin-top: 17px;
+}
+
+.clearfix::after {
+    content:'';
+    display: block;
+    clear: both;
+}
+.navigation {
+    float: right;
+}
+
+.navigation-list-item {
+    display: inline-block;
+    list-style-type: none;
+    font-size: 17px;
+    padding: 30px 20px;
+    padding-bottom: 15px;
+    border-top: 7px solid;
+    margin-right: -5px;
+    width: 130px;
+    text-align: center;
+}
+
+.first {
+    border-top: 10px solid yellow;
+}
+
+.second {
+    border-top: 10px solid orange;
+}
+
+.third {
+    border-top: 10px solid hotpink;
+}
+
+.forth {
+    border-top: 10px solid deeppink;
+}
+
+.fifth {
+    border-top: 10px solid darkviolet;
+}
+
+.sixth {
+    border-top: 10px solid purple;
+}
+
+.seventh {
+    border-top: 10px solid darkblue;
+}
+
+.eight {
+    border-top: 10px solid blue;
+}
+
+
+.navigation-list-item a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+.hero {
+    padding-top: 80px;
+    height: 100vh;
+    background: #292929;
+    position: relative;
+    text-align: center;
+    background-image: url(../images/hero-background-city.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-title {
+    color: #39C9BB;
+    font-size: 25px;
+}
+
+span {
+    color: white;
+    font-size: 35px;
+}
+
+#features {
+    width: 100%;
+    display: inline-block;
+
+}
+
+.cta-buttons {
+    text-align: center;
+}
+
+button {
+    border: 2px solid #39C9BB;
+    background-color: #39C9BB;
+    color: white;
+    text-transform: uppercase;
+    padding: 8px;
+    font-weight: bolder;
+}
+
+button:hover {
+    background-color: transparent;
+}
+
+.feature {
+    width: 50%;
+    float: left;
+}
+
+.feature-icon-container {
+    width: 40px;
+    float: left;
+    padding-top: 18px;
+    text-align: center;
+}
+
+.feature-description {
+    width: calc(100% - 40px);
+    float: left;
+}
+
+.blog_posts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 80px 400px;
+    flex-wrap: wrap;
+
+}
+
+.post {
+    height: 440px;
+    width: 290px;
+    position: relative;
+}
+
+a.post-title {
+    display: block;
+    font-size: 25px;
+    color: #39C9BB;
+    font-weight: lighter;
+    text-decoration: none;
+    padding-top: 20px;
+
+}
+
+a.post-title:hover {
+    color: darkviolet;
+}
+
+p {
+    font-size: 17px;
+    font-weight: lighter;
+    color: #848482;
+}
+
+.post-footer {
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.post-footer a {
+    text-decoration: none;
+    color: #39C9BB;
+    font-size: 15px;
+}
+
+a.more-info:hover, a.comments:hover {
+    color: darkviolet;
+}
+
+.more-info {
+    position: absolute;
+    left: 0;
+    color: #39C9BB;
+    font-size: 15px;
+}
+
+.fa-comments {
+    position: absolute;
+    right: 30px;
+}
+
+.comments-number {
+    position: absolute;
+    color: #848482;
+    font-size: 15px;
+    right: 0;
+}
+
+
+#company-experience {
+    width: 100%;
+    height: 700px;
+    background-color: #39C9BB;
+    padding-top: 5px;
+}
+
+
+
+
+#prices {
+    width: 100%;
+    height: 400px;
+}
+
+.table {
+    border: 1px solid #848482;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    margin-top: 40px;
+
+}
+
+.table thead {
+    background: #cecece;
+}
+
+.table th, .table td {
+    border: 2px solid #cecece;
+    padding: 10px;
+    width: 200px;
+
+}
+
+a.product-name {
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+}
+
+a.product-name:hover {
+    font-weight: bolder;
+}
+
+#contact {
+    background: #EBE7E6;
+    padding-top: 5px;
+}
+
+.contact-form {
+    width: 750px;
+    height: 350px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.contact-form-type {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.contact-form-type > label {
+    width: 150px;
+}
+
+.contact-form-data {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.contact-form-data input {
+    width: 220px;
+    border: 1px solid #EBE7E6;
+}
+
+
+.contact-form-message textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    border: 1px solid #EBE7E6;
+}
+
+.contact-form-button {
+    position: absolute;
+    right: 0;
+    bottom; 0;
+}
+.contact-button {
+    color: #ffffff;
+    width: 70px;
+    margin-left: 1230px;
+}
+
+.contact-button:hover {
+    color: #39C9BB;
+    background: white;
+}
+
