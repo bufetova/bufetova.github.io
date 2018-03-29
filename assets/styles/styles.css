@@ -42,6 +42,7 @@ hr {
     display: block;
     clear: both;
 }
+
 .navigation {
     float: right;
 }
@@ -138,28 +139,47 @@ button:hover {
     background-color: transparent;
 }
 
-#features {
-    width: 100%;
-    display: inline-block;
+/*SUPERB FEATURES*/
 
+.features-container {
+    display: inline-block;
+    width: 50%;
+    transform: translate(50%, 0);
+    padding-top: 20px;
 }
 
 .feature {
     width: 50%;
     float: left;
+    margin: 0 auto;
 
 }
 
 .feature-icon-container {
-    width: 40px;
+    width: 80px;
     float: left;
-    padding-top: 18px;
+    padding-top: 20px;
+    padding-right: 5px;
     text-align: center;
 }
 
+.feature-icon-container {
+    font-size: 30px;
+    color: #39C9BB;
+}
+
 .feature-description {
-    width: calc(100% - 40px);
+    width: calc(100% - 80px);
     float: left;
+}
+
+.feature-description h3 {
+    font-size: 22px;
+}
+
+.feature-description p {
+    margin-top: -15px;
+    font-size: 17px;
 }
 
 /* BLOG POSTS */
