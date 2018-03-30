@@ -105,14 +105,14 @@ hr {
     background: #292929 url(../images/hero-background-city.jpg) fixed;
 }
 
-.hero-content {
+.hero__content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.hero-title {
+.hero__content__title {
     color: #39C9BB;
     font-size: 25px;
 }
@@ -122,7 +122,7 @@ span {
     font-size: 35px;
 }
 
-.cta-buttons {
+.cta__buttons {
     text-align: center;
 }
 
@@ -147,20 +147,20 @@ button:hover {
     padding-top: 20px;
 }
 
-.features-container {
+.features__container {
     display: inline-block;
     width: 60%;
     transform: translate(35%, 0);
     padding-top: 20px;
 }
 
-.features-container-feature {
+.features__container__feature {
     width: 50%;
     float: left;
     padding-top: 10px;
 }
 
-.features-container-feature-icon {
+.features__container__feature__icon {
     width: 70px;
     float: left;
     padding-right: 5px;
@@ -169,26 +169,26 @@ button:hover {
     color: #39C9BB;
 }
 
-.features-container-feature-description {
+.features__container__feature__description {
     width: calc(100% - 70px);
     float: left;
 }
 
-.features-container-feature-description h3 {
+.features__container__feature__description h3 {
     font-size: 22px;
     margin-top: 5px;
     margin-bottom: 5px;
     height: 40px;
 }
 
-.features-container-feature-description p {
+.features__container__feature__description p {
     font-size: 17px;
     margin-top: -5px;
 }
 
 /* BLOG POSTS */
 
-.blog_posts {
+.blog__posts {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -196,7 +196,7 @@ button:hover {
     flex-wrap: wrap;
 }
 
-.post {
+.blog__posts__post {
     height: 440px;
     width: 290px;
     position: relative;
@@ -204,7 +204,7 @@ button:hover {
     margin-bottom: 10px;
 }
 
-a.post-title {
+a.blog__posts__post__title {
     display: block;
     font-size: 25px;
     color: #39C9BB;
@@ -214,32 +214,32 @@ a.post-title {
 
 }
 
-a.post-title:hover {
+a.blog__posts__post__title:hover {
     color: #9400D3;
 }
 
-p {
+.blog__posts__post p {
     font-size: 17px;
     font-weight: lighter;
     color: #848482;
 }
 
-.post-footer {
+.blog__posts__post__footer {
     display: inline-block;
     padding-bottom: 15px;
 }
 
-.post-footer a {
+.blog__posts__post__footer a {
     text-decoration: none;
     color: #39C9BB;
     font-size: 15px;
 }
 
-a.more-info:hover, a.comments:hover {
+a.blog__posts__post__footer__more__info:hover, a.blog__posts__post__footer__comments:hover {
     color: #9400D3;
 }
 
-.more-info {
+a.blog__posts__post__footer__more__info {
     position: absolute;
     left: 0;
     color: #39C9BB;
@@ -515,3 +515,27 @@ a.product-name:hover {
     background: white;
 }
 
+.main-footer {
+    background-color: #292929;
+    height: 200px;
+}
+
+.main-footer h3 {
+    margin-top: 0;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.main-footer-contact {
+    color: #ffffff;
+    padding-top: 10px;
+}
+
+.main-footer-contact ul {
+    list-style-type: none;
+}
+
+.main-footer-contact li {
+    font-size: 15px;
+    font-weight: bolder;
+}
