@@ -141,45 +141,49 @@ button:hover {
 
 /*SUPERB FEATURES*/
 
+.features {
+    background-color: #ffffff;
+    padding-bottom: 50px;
+    padding-top: 20px;
+}
+
 .features-container {
     display: inline-block;
-    width: 50%;
-    transform: translate(50%, 0);
+    width: 60%;
+    transform: translate(35%, 0);
     padding-top: 20px;
 }
 
-.feature {
+.features-container-feature {
     width: 50%;
     float: left;
-    margin: 0 auto;
-
+    padding-top: 10px;
 }
 
-.feature-icon-container {
-    width: 80px;
+.features-container-feature-icon {
+    width: 70px;
     float: left;
-    padding-top: 20px;
     padding-right: 5px;
     text-align: center;
-}
-
-.feature-icon-container {
     font-size: 30px;
     color: #39C9BB;
 }
 
-.feature-description {
-    width: calc(100% - 80px);
+.features-container-feature-description {
+    width: calc(100% - 70px);
     float: left;
 }
 
-.feature-description h3 {
+.features-container-feature-description h3 {
     font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 40px;
 }
 
-.feature-description p {
-    margin-top: -15px;
+.features-container-feature-description p {
     font-size: 17px;
+    margin-top: -5px;
 }
 
 /* BLOG POSTS */
