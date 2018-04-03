@@ -7,34 +7,40 @@
     <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 <body>
-<header class="header">
-    <div class="topbar clearfix">
-        <img src="assets/images/logo2.png" class="logo" alt="amber-logo">
-        <nav class="navigation">
-            <ul class="navigation-list">
-                <li class="navigation-list-item first"><a href="#works">Works</a></li>
-                <li class="navigation-list-item second"><a href="#features">Features</a></li>
-                <li class="navigation-list-item third"><a href="#opinions">Opinions</a></li>
-                <li class="navigation-list-item forth"><a href="#blog">Blog</a></li>
-                <li class="navigation-list-item fifth"><a href="#company-experience">Company</a></li>
-                <li class="navigation-list-item sixth"><a href="#team">Team</a></li>
-                <li class="navigation-list-item seventh"><a href="#prices">Prices</a></li>
-                <li class="navigation-list-item eighth"><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+<header class="topbar">
+    <div class="topbar__login__panel">
+        <input class="search__bar" type="text" placeholder="Search">
+        <button type="submit" class="fas fa-search"></button>
+        <button class="login__button" type="submit"><span class="far fa-user-circle"></span>Login</button>
+        <button class="register__button" type="submit"><span class="fas fa-pencil-alt"></span>Register</button>
     </div>
-    <div class="hero">
-        <div class="hero__content">
-            <div class="hero__content__title">
-                <h1>Creating a unique look<br><span>Never been easier.</span></h1>
-            </div>
-            <div class="cta__buttons">
-                <button>See features</button>
-                <button>Purchase now</button>
-            </div>
-        </div>
+    <div class="topbar__nav clearfix">
+         <img src="assets/images/logo2.png" class="logo" alt="amber-logo">
+         <nav class="navigation">
+            <ul class="navigation__list">
+                <li class="navigation__list__item first"><a href="#works">Works</a></li>
+                <li class="navigation__list__item second"><a href="#features">Features</a></li>
+                <li class="navigation__list__item third"><a href="#opinions">Opinions</a></li>
+                <li class="navigation__list__item forth"><a href="#blog">Blog</a></li>
+                <li class="navigation__list__item fifth"><a href="#company-experience">Company</a></li>
+                <li class="navigation__list__item sixth"><a href="#team">Team</a></li>
+                <li class="navigation__list__item seventh"><a href="#prices">Prices</a></li>
+                <li class="navigation__list__item eighth"><a href="#contact">Contact</a></li>
+            </ul>
+         </nav>
     </div>
 </header>
+<section class="hero">
+    <div class="hero__content">
+        <div class="hero__content__title">
+            <h1>Creating a unique look<br><span>Never been easier.</span></h1>
+        </div>
+        <div class="cta__buttons">
+            <button>See features</button>
+            <button>Purchase now</button>
+        </div>
+    </div>
+</section>
 <main>
     <section id="cta" class="cta">
         <h2>Steal of the month</h2>
@@ -112,38 +118,38 @@
         <div class="blog__posts">
             <div class="blog__posts__post">
                 <img src="http://via.placeholder.com/290x220">
-                <a href="#" class="blog__posts__post__title">Runaway to Red Carpet: Awards Season</a>
+                <a href="#" class="post__title">Runaway to Red Carpet: Awards Season</a>
                 <p>
                     Her father worked on oil rigs and farms that through most of the Depression. But it is a new story
                     that has seared into my genetic.
                 </p>
-                <footer class="blog__posts__post__footer">
-                    <a href="#" class="blog__posts__post__footer__more__info">Learn more</a>
-                    <a href="#" class="blog__posts__post__footer__comments"><i class="fas fa-comments"></i><span class="comments-number">450</span></a>
+                <footer class="post__footer">
+                    <a href="#" class="post__footer__more__info">Learn more</a>
+                    <a href="#" class="post__footer__comments"><i class="fas fa-comments"></i><span class="comments-number">450</span></a>
                 </footer>
             </div>
             <div class="blog__posts__post">
                <img src="http://via.placeholder.com/290x220">
-                <a href="#" class="blog__posts__post__title">Runaway to Red Carpet: Awards Season</a>
+                <a href="#" class="post__title">Runaway to Red Carpet: Awards Season</a>
                 <p>
                     Her father worked on oil rigs and farms that through most of the Depression. But it is a new story
                     that has seared into my genetic.
                 </p>
-                <footer class="blog__posts__post__footer">
-                    <a href="#" class="blog__posts__post__footer__more__info">Learn more</a>
-                    <a href="#" class="blog__posts__post__footer__comments"><i class="fas fa-comments"></i><span class="comments-number">450</span></a>
+                <footer class="post__footer">
+                    <a href="#" class="post__footer__more__info">Learn more</a>
+                    <a href="#" class="post__footer__comments"><i class="fas fa-comments"></i><span class="comments-number">450</span></a>
                 </footer>
             </div>
             <div class="blog__posts__post">
                 <img src="http://via.placeholder.com/290x220">
-                <a href="#" class="blog__posts__post__title">Runaway to Red Carpet: Awards Season</a>
+                <a href="#" class="post__title">Runaway to Red Carpet: Awards Season</a>
                 <p>
                     Her father worked on oil rigs and farms that through most of the Depression. But it is a new story
                     that has seared into my genetic.
                 </p>
-                <footer class="blog__posts__post__footer">
-                    <a href="#" class="blog__posts__post__footer__more__info">Learn more</a>
-                    <a href="#" class="blog__posts__post__footer__comments"><i class="fas fa-comments"></i><span class="comments-number">450</span></a>
+                <footer class="post__footer">
+                    <a href="#" class="post__footer__more__info">Learn more</a>
+                    <a href="#" class="post__footer__comments"><i class="fas fa-comments"></i><span class="comments-number">450</span></a>
                 </footer>
             </div>
         </div>
@@ -151,95 +157,98 @@
     <section id="company-experience" class="company__experience">
         <h2>Company experience</h2>
         <hr/>
-
-
-        <div class="company-experience-details">
-            <div class="company-experience-web-dev">
-                <div class="company-experience-web-dev-radius">
-                    <img src="http://via.placeholder.com/150x150">
+        <div class="company__experience__details">
+            <div class="web__dev">
+                <div class="web__dev__circle">
+                    <div class="inner__circle">
+                        <span class="fas fa-tree"></span>
+                    </div>
                 </div>
                 <h1 class="value">500</h1>
                 <p class="content">years of web development</p>
             </div>
-            <div class="company-experience-details-dots">
+            <div class="company__experience__dots">
                 <span class="dot"></span>
                 &nbsp;
                 <span class="dot"></span>
                 &nbsp;
                 <span class="dot"></span>
             </div>
-            <div class="company-experience-results">
-                <div class="company-experience-results-radius">
-                     <img src="http://via.placeholder.com/150x150">
+            <div class="results">
+                <div class="results__circle">
+                    <div class="inner__circle">
+                        <span class="fas fa-cloud"></span>
+                    </div>
                 </div>
                 <h1 class="value">2500</h1>
                 <p class="content">results of the last winter year</p>
             </div>
-            <div class="company-experience-details-dots">
+            <div class="company__experience__dots">
                 <span class="dot"></span>
                 &nbsp;
                 <span class="dot"></span>
                 &nbsp;
                 <span class="dot"></span>
             </div>
-            <div class="company-experience-budget">
-                <div class="company-experience-budget-radius">
-                    <img src="http://via.placeholder.com/150x150">
+            <div class="budget">
+                <div class="budget__circle">
+                    <div class="inner__circle">
+                        <span class="fas fa-fighter-jet"></span>
+                    </div>
                 </div>
                 <h1 class="value">100 000</h1>
                 <p class="content">euros of the military budget</p>
             </div>
         </div>
-
     </section>
     <section id="team" class="team">
         <h2>Our team</h2>
         <hr/>
-        <div class="team-section">
-            <div class="team-section-member">
+        <div class="team__section">
+            <div class="team__section__member">
                 <img src="http://via.placeholder.com/210x150">
-                <div class="team-section-member-about">
+                <div class="about">
                     <h4>Many Delgado</h4>
                     <p>a little boy</p>
                 </div>
-                <div class="team-section-member-motto">
+                <div class="motto">
                     <p>Be who you are and tell what you feel, because those who mintopd don't matter.</p>
                 </div>
-                <a href="#"><div class="profile-button">Profile</div></a>
+                <a href="#"><div class="profile__button">Profile</div></a>
             </div>
-            <div class="team-section-member">
+            <div class="team__section__member">
                 <img src="http://via.placeholder.com/210x280">
-                <div class="team-section-member-motto-odd"></div>
-                <a href="#"><div class="profile-button">Profile</div></a>
+                <div class="motto--other"></div>
+                <a href="#"><div class="profile__button">Profile</div></a>
             </div>
-            <div class="team-section-member">
+            <div class="team__section__member">
                 <img src="http://via.placeholder.com/210x150">
-                <div class="team-section-member-about">
+                <div class="about">
                     <h4>Luke Dunphy</h4>
                     <p>NATO representative</p>
                 </div>
-                <div class="team-section-member-motto">
+                <div class="motto">
                     <p>Be who you are and tell what you feel, because those who mind don't matter.</p>
                 </div>
-                <a href="#"><div class="profile-button">Profile</div></a>
+                <a href="#"><div class="profile__button">Profile</div></a>
             </div>
-            <div class="team-section-member">
+            <div class="team__section__member">
                 <img src="http://via.placeholder.com/210x150">
-                <div class="team-section-member-about">
+                <div class="about">
                     <h4>Mitchell Pritchett</h4>
                     <p>ecology lawyer</p>
                 </div>
-                <div class="team-section-member-motto">
+                <div class="motto">
                     <p>Be who you are and tell what you feel, because those who mind don't matter.</p>
                 </div>
-                <a href="#"><div class="profile-button">Profile</div></a>
+                <a href="#"><div class="profile__button">Profile</div></a>
             </div>
         </div>
     </section>
     <section id="prices" class="prices" >
         <h2>Prices</h2>
         <hr/>
-        <table class="price-table">
+        <table class="price__table">
             <thead>
             <tr>
                 <th>Product</th>
@@ -249,28 +258,28 @@
             </thead>
             <tbody>
             <tr>
-                <td><a href="#" class="product-name">Quick Amar</a></td>
+                <td><a href="#" class="product__name">Quick Amar</a></td>
                 <td>USD 33.00</td>
                 <td>Yes</td>
             </tr>
             <tr>
-                <td><a href="#" class="product-name">Browner 3.0</a></td>
+                <td><a href="#" class="product__name">Browner 3.0</a></td>
                 <td>USD 100.00</td>
                 <td>No</td>
             </tr>
             <tr>
-                <td><a href="#" class="product-name">Ultra fast glue</a></td>
+                <td><a href="#" class="product__name">Ultra fast glue</a></td>
                 <td>USD 420.00</td>
                 <td>Yes</td>
             </tr>
             </tbody>
         </table>
     </section>
-    <section id="contact" class="contact__section" >
+    <section id="contact" class="contact">
         <h2>Contact</h2>
         <hr/>
-        <div class="contact-form">
-            <div class="contact-form-type">
+        <div class="contact__form">
+            <div class="contact__form__type">
                 <!--<div class="contact-form-type-client">-->
                     <label><input type="radio" value="client" name="type">Client</label>
                 <!--</div>-->
@@ -284,32 +293,32 @@
                     <label><input type="radio" value="sms" name="type">Contact via SMS</label>
                 <!--</div>-->
             </div>
-            <div class="contact-form-data">
-                <div class="contact-form-name">
+            <div class="contact__form__data">
+                <div class="name">
                   <div><label for="name">Name</label></div>
                   <input id="name" type="text" required>
                 </div>
-                <div class="contact-form-phone">
+                <div class="phone">
                     <div><label for="phone" >Phone</label></div>
                    <input id="phone" type="tel" required>
                 </div>
-                <div class="contact-form-mail">
+                <div class="mail">
                     <div><label for="email">Email</label></div>
                    <input id="email" type="email">
                 </div>
             </div>
-            <div class="contact-form-message">
+            <div class="contact__form__message">
                 <div><label for="message">Message</label></div>
                 <textarea id="message" maxlength="400"></textarea>
             </div>
-            <div class="contact-form-button">
-                <button class="contact-button">Send</button>
+            <div class="contact__form__button">
+                <button class="contact__button">Send</button>
             </div>
         </div>
     </section>
 </main>
-<footer class="main-footer">
-    <section class="main-footer-contact">
+<footer class="main__footer">
+    <section class="main__footer__contact">
         <h3>Stay in Touch!</h3>
         <ul>
             <li>Address</li>
