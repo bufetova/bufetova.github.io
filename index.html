@@ -15,7 +15,7 @@
         <button class="register__button" type="submit"><span class="fas fa-pencil-alt"></span>Register</button>
     </div>
     <div class="topbar__nav clearfix">
-         <img src="assets/images/logo2.png" class="logo" alt="amber-logo">
+         <img class="logo" src="assets/images/logo2.png" alt="amber-logo">
          <nav class="navigation">
             <ul class="navigation__list">
                 <li class="navigation__list__item first"><a href="#works">Works</a></li>
@@ -54,11 +54,11 @@
         <h2>Superb features</h2>
         <hr/>
         <div class="features__container">
-            <div class="features__container__feature">
-                <div class="features__container__feature__icon">
+            <div class="feature">
+                <div class="feature__icon">
                     <span class="fab fa-android"></span>
                 </div>
-                <div class="features__container__feature__description">
+                <div class="feature__description">
                     <h3>Brilliant creative design</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -67,11 +67,11 @@
                     </p>
                 </div>
             </div>
-            <div class="features__container__feature">
-                <div class="features__container__feature__icon">
+            <div class="feature">
+                <div class="feature__icon">
                     <span class="fab fa-bluetooth-b"></span>
                 </div>
-                <div class="features__container__feature__description">
+                <div class="feature__description">
                     <h3>Awesome prices</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -80,11 +80,11 @@
                     </p>
                 </div>
             </div>
-            <div class="features__container__feature">
-                <div class="features__container__feature__icon">
+            <div class="feature">
+                <div class="feature__icon">
                     <span class="far fa-star"></span>
                 </div>
-                <div class="features__container__feature__description">
+                <div class="feature__description">
                     <h3>Great portfolio</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -93,11 +93,11 @@
                     </p>
                 </div>
             </div>
-            <div class="features__container__feature">
-                <div class="features__container__feature__icon">
+            <div class="feature">
+                <div class="feature__icon">
                     <span class="fas fa-wrench"></span>
                 </div>
-                <div class="features__container__feature__description">
+                <div class="feature__description">
                     <h3>Creative team</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -116,7 +116,7 @@
         <h2>Latest blog posts</h2>
         <hr/>
         <div class="blog__posts">
-            <div class="blog__posts__post">
+            <div class="post">
                 <img src="http://via.placeholder.com/290x220">
                 <a href="#" class="post__title">Runaway to Red Carpet: Awards Season</a>
                 <p>
@@ -124,11 +124,11 @@
                     that has seared into my genetic.
                 </p>
                 <footer class="post__footer">
-                    <a href="#" class="post__footer__more__info">Learn more</a>
-                    <a href="#" class="post__footer__comments"><i class="fas fa-comments"></i><span class="comments-number">450</span></a>
+                    <a href="#" class="more__info">Learn more</a>
+                    <a href="#" class="comments"><i class="fas fa-comments"></i><span class="comments__number">450</span></a>
                 </footer>
             </div>
-            <div class="blog__posts__post">
+            <div class="post">
                <img src="http://via.placeholder.com/290x220">
                 <a href="#" class="post__title">Runaway to Red Carpet: Awards Season</a>
                 <p>
@@ -136,11 +136,11 @@
                     that has seared into my genetic.
                 </p>
                 <footer class="post__footer">
-                    <a href="#" class="post__footer__more__info">Learn more</a>
-                    <a href="#" class="post__footer__comments"><i class="fas fa-comments"></i><span class="comments-number">450</span></a>
+                    <a href="#" class="more__info">Learn more</a>
+                    <a href="#" class="comments"><i class="fas fa-comments"></i><span class="comments__number">450</span></a>
                 </footer>
             </div>
-            <div class="blog__posts__post">
+            <div class="post">
                 <img src="http://via.placeholder.com/290x220">
                 <a href="#" class="post__title">Runaway to Red Carpet: Awards Season</a>
                 <p>
@@ -148,8 +148,8 @@
                     that has seared into my genetic.
                 </p>
                 <footer class="post__footer">
-                    <a href="#" class="post__footer__more__info">Learn more</a>
-                    <a href="#" class="post__footer__comments"><i class="fas fa-comments"></i><span class="comments-number">450</span></a>
+                    <a href="#" class="more__info">Learn more</a>
+                    <a href="#" class="comments"><i class="fas fa-comments"></i><span class="comments__number">450</span></a>
                 </footer>
             </div>
         </div>
@@ -280,18 +280,10 @@
         <hr/>
         <div class="contact__form">
             <div class="contact__form__type">
-                <!--<div class="contact-form-type-client">-->
-                    <label><input type="radio" value="client" name="type">Client</label>
-                <!--</div>-->
-                <!--<div class="contact-form-type-investor">-->
-                    <label><input type="radio" value="investor" name="type">Investor</label>
-                <!--</div>-->
-                <!--<div class="contact-form-type-other">-->
-                    <label><input type="radio" value="other" name="type">Other</label>
-                <!--</div>-->
-                <!--<div class="contact-form-type-sms">-->
-                    <label><input type="radio" value="sms" name="type">Contact via SMS</label>
-                <!--</div>-->
+                <label><input type="radio" value="client" name="type">Client</label>
+                <label><input type="radio" value="investor" name="type">Investor</label>
+                <label><input type="radio" value="other" name="type">Other</label>
+                <label><input type="radio" value="sms" name="type">Contact via SMS</label>
             </div>
             <div class="contact__form__data">
                 <div class="name">
@@ -327,7 +319,6 @@
         </ul>
     </section>
 </footer>
-
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 </body>
 </html>

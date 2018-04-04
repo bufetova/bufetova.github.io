@@ -9,6 +9,13 @@ html, body {
     padding: 0;
 }
 
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
 h2 {
     text-align: center;
     padding: 10px;
@@ -20,13 +27,6 @@ h2 {
 hr {
     width: 50px;
     border: 1px solid #808080;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 3;
 }
 
 .topbar__login__panel {
@@ -80,7 +80,6 @@ header {
 
 .topbar__nav {
     background-color: #7E7E7E;
-    z-index: 2;
 }
 
 .logo {
@@ -171,7 +170,7 @@ header {
     font-size: 25px;
 }
 
-span {
+.hero__content__title span {
     color: #ffffff;
     font-size: 35px;
 }
@@ -208,13 +207,13 @@ button:hover {
     padding-top: 20px;
 }
 
-.features__container__feature {
+.feature {
     width: 50%;
     float: left;
     padding-top: 10px;
 }
 
-.features__container__feature__icon {
+.feature__icon {
     width: 70px;
     float: left;
     padding-right: 5px;
@@ -223,19 +222,19 @@ button:hover {
     color: #39C9BB;
 }
 
-.features__container__feature__description {
+.feature__description {
     width: calc(100% - 70px);
     float: left;
 }
 
-.features__container__feature__description h3 {
+.feature__description h3 {
     font-size: 22px;
     margin-top: 5px;
     margin-bottom: 5px;
     height: 40px;
 }
 
-.features__container__feature__description p {
+.feature__description p {
     font-size: 17px;
     margin-top: -5px;
 }
@@ -250,12 +249,18 @@ button:hover {
     flex-wrap: wrap;
 }
 
-.blog__posts__post {
+.post {
     height: 440px;
     width: 290px;
     position: relative;
     border-bottom: 1px solid #848482;
     margin-bottom: 10px;
+}
+
+.post p {
+    font-size: 17px;
+    font-weight: lighter;
+    color: #848482;
 }
 
 a.post__title {
@@ -272,12 +277,6 @@ a.post__title:hover {
     color: #9400D3;
 }
 
-.blog__posts__post p {
-    font-size: 17px;
-    font-weight: lighter;
-    color: #848482;
-}
-
 .post__footer {
     display: inline-block;
     padding-bottom: 15px;
@@ -289,14 +288,14 @@ a.post__title:hover {
     font-size: 15px;
 }
 
-a.post__footer__more__info {
+a.more__info {
     position: absolute;
     left: 0;
     color: #39C9BB;
     font-size: 15px;
 }
 
-a.post__footer__more__info:hover, a.post__footer__comments:hover {
+a.more__info:hover, a.comments:hover {
     color: #9400D3;
 }
 
@@ -305,7 +304,7 @@ a.post__footer__more__info:hover, a.post__footer__comments:hover {
     right: 30px;
 }
 
-.comments-number {
+.comments__number {
     position: absolute;
     color: #848482;
     font-size: 15px;
@@ -335,26 +334,67 @@ a.post__footer__more__info:hover, a.post__footer__comments:hover {
     flex-direction: row;
     margin: 40px auto;
     text-align: center;
-    max-width: 1000px;
+    width: 70%
 }
 
-.company__experience__dots {
-    transform: translate(0%, 35%);
+.web__dev, .results, .budget {
+    padding-top: 10px;
 }
 
-.dot {
-    display: inline-block;
-    height: 10px;
-    width: 10px;
-    background-color: #ffffff;
-    border-radius: 50%;
-}
-
-.web__dev__circle, .results__circle, .budget__circle {
-    border: 6px solid #ffffff;
-    border-radius: 100%;
-    height: 250px;
+.web__dev__circle {
     width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    background-size: 100% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#39C9BB, #39C9BB),
+                      linear-gradient(50deg, mediumturquoise 60%, white 30%),
+                      linear-gradient(120deg, white 36%, white 30%),
+                      linear-gradient(300deg, white 36%, white 30%),
+                      linear-gradient(210deg, white 36%, white 30%);
+    background-position: center center, left top, right top, left bottom, right bottom;
+    background-origin: content-box, border-box, border-box, border-box, border-box;
+    background-clip: content-box, border-box, border-box, border-box, border-box;
+    transform: rotate(40deg);
+    position: relative;
+}
+
+.results__circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    background-size: 100% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#39C9BB, #39C9BB),
+                    linear-gradient(50deg, mediumturquoise 60%, white 30%),
+                    linear-gradient(120deg, white 36%, white 30%),
+                    linear-gradient(300deg, mediumturquoise 36%, mediumturquoise 30%),
+                    linear-gradient(210deg, white 36%, white 30%);
+    background-position: center center, left top, right top, left bottom, right bottom;
+    background-origin: content-box, border-box, border-box, border-box, border-box;
+    background-clip: content-box, border-box, border-box, border-box, border-box;
+    transform: rotate(40deg);
+    position: relative;
+}
+
+.budget__circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    background-size: 100% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#39C9BB, #39C9BB),
+                linear-gradient(50deg, white 70%, mediumturquoise 70%),
+                linear-gradient(120deg, white 36%, white 30%),
+                linear-gradient(300deg, white 36%, white 30%),
+                linear-gradient(210deg, white 36%, white 30%);
+    background-position: center center, left top, right top, left bottom, right bottom;
+    background-origin: content-box, border-box, border-box, border-box, border-box;
+    background-clip: content-box, border-box, border-box, border-box, border-box;
+    transform: rotate(360deg);
     position: relative;
 }
 
@@ -365,8 +405,8 @@ a.post__footer__more__info:hover, a.post__footer__comments:hover {
     background-color: black;
     width: 150px;
     height: 150px;
-    top: 44px;
-    left: 44px;
+    top: 43px;
+    left: 43px;
 }
 
 .fa-cloud, .fa-fighter-jet, .fa-tree {
@@ -374,10 +414,7 @@ a.post__footer__more__info:hover, a.post__footer__comments:hover {
     font-size: 60px;
     position: relative;
     top: 44px;
-}
-
-.web__dev, .results, .budget {
-    padding-top: 10px;
+    transform: rotate(-40deg);
 }
 
 .value {
@@ -393,6 +430,18 @@ a.post__footer__more__info:hover, a.post__footer__comments:hover {
     color: #ffffff;
     font-weight: lighter;
     margin-top: 0;
+}
+
+.company__experience__dots {
+    transform: translate(0%, 35%);
+}
+
+.dot {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
 }
 
 /* TEAM */
