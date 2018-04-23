@@ -47,6 +47,11 @@ div[class^="red_"] {
         display: flex;
     }
 
+    .section_red div {
+        width: 40%;
+        flex-grow: 1;
+    }
+
 }
 
 @media (min-width: 992px) {
