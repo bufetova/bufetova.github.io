@@ -10,23 +10,23 @@ div[class^="section"] {
 }
 
 div {
-    margin: 5px;
+    margin: 8px;
 }
 
-div[class^="blue_"], div[class^="green_"] {
+div[class^="blue"], div[class^="green"] {
     height: 40px;
     width: 100%;
 }
 
-div[class^="blue_"] {
+div[class^="blue"] {
     background-color: #1e90ff;
 }
 
-div[class^="green_"] {
+div[class^="green"] {
     background-color: #008000;
 }
 
-div[class^="red_"] {
+div[class^="red"] {
     background-color: #ff0000;
     height: 60px;
     width: 100%;
@@ -38,12 +38,12 @@ div[class^="red_"] {
     width: 100%;
 }
 
-.red_third, .red_forth {
+.red--hidden {
     display: none;
 }
 
 @media (min-width: 768px) {
-    .red_third, .red_forth {
+    .red--hidden {
         display: flex;
     }
 
@@ -59,7 +59,7 @@ div[class^="red_"] {
         flex-wrap: nowrap;
     }
 
-    div[class^="blue_"] {
+    div[class^="blue"] {
         height: 60px;
     }
 
@@ -67,11 +67,11 @@ div[class^="red_"] {
         height: 240px;
     }
 
-    div[class^="green_"] {
+    div[class^="green"] {
         height: 200px;
     }
 
-    div[class^="red_"] {
+    div[class^="red"] {
         height: 130px;
     }
 }
