@@ -2,24 +2,26 @@ div {
     padding: 5px;
 }
 
-.blue {
-    background-color:lightblue;
-    height: 30px;
+.blue, .green {
+    height: 40px;
 }
 
-.orange {
-    background-color: orange;
-    height: 100px;
+.blue {
+    background-color: #1e90ff;
 }
 
 .green {
-    background-color: lightgreen;
-    height: 30px;
+    background-color: #008000;
+}
+
+.orange {
+    background-color: #ffa500;
+    height: 150px;
 }
 
 .red {
-    background-color: red;
-    height: 40px;
+    background-color: #ff0000;
+    height: 60px;
 }
 
 @media (min-width: 768px) {
@@ -28,15 +30,15 @@ div {
     }
 
     .orange {
-        height: 190px;
+        height: 240px;
     }
 
     .green {
-        height: 170px;
+        height: 200px;
     }
 
     .red {
-        height: 80px;
+        height: 130px;
     }
 }
 
