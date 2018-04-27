@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
 }
 
 div[class^="section"] {
@@ -51,7 +52,6 @@ div[class^="red"] {
         width: 40%;
         flex-grow: 1;
     }
-
 }
 
 @media (min-width: 992px) {
