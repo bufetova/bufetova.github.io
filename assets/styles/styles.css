@@ -27,15 +27,15 @@ div {
     background-color: #008000;
 }
 
-div[class^="red"] {
-    background-color: #ff0000;
-    height: 60px;
-    width: 100%;
-}
-
 .orange {
     background-color: #ffa500;
     height: 150px;
+    width: 100%;
+}
+
+div[class^="red"] {
+    background-color: #ff0000;
+    height: 60px;
     width: 100%;
 }
 
@@ -43,7 +43,7 @@ div[class^="red"] {
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
     .red--hidden {
         display: flex;
     }
@@ -54,7 +54,7 @@ div[class^="red"] {
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     div[class^="section"] {
         flex-wrap: nowrap;
     }
