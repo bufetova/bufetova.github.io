@@ -13,16 +13,16 @@ div {
     margin: 8px;
 }
 
-div[class^="blue"], div[class^="green"] {
+.blue, .green {
     height: 40px;
     width: 100%;
 }
 
-div[class^="blue"] {
+.blue {
     background-color: #1e90ff;
 }
 
-div[class^="green"] {
+.green {
     background-color: #008000;
 }
 
@@ -59,7 +59,7 @@ div[class^="red"] {
         flex-wrap: nowrap;
     }
 
-    div[class^="blue"] {
+    .blue {
         height: 60px;
     }
 
@@ -67,7 +67,7 @@ div[class^="red"] {
         height: 240px;
     }
 
-    div[class^="green"] {
+    .green {
         height: 200px;
     }
 
