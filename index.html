@@ -12,6 +12,7 @@ var firstNameInput = document.getElementById("first_name");
 var lastNameInput = document.getElementById("last_name");
 var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
+var inputs = document.getElementsByTagName("input");
 
 updateContactList();
 addContactButton.addEventListener("click", addNewContact);
@@ -30,7 +31,15 @@ function addNewContact() {
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(updateContactList)
+    }).then(updateContactList);
+    clearInputs();
+}
+
+function clearInputs() {
+    var inputNode = Array.from(inputs);
+    inputNode.forEach(function (input) {
+        input.value = "";
+    })
 }
 
 function deleteContact(contactId) {
