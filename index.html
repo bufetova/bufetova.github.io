@@ -1,6 +1,30 @@
+<input placeholder = "first name" />
+<input placeholder = "last name" />
+<input placeholder = "phone number" />
+<input placeholder = "email" />
+<button id="add_button">Add new contact</button>
+
 <ul id="contacts"></ul>
 <script>
 var container = document.getElementById("contacts");
+var addContactButton = document.getElementById("add_button");
+
+addContactButton.addEventListener("click", function () {
+var contact = {
+    firstName: "Agata",
+    lastName: "Budzinska",
+    phone: "798040913",
+    email: "agata@mail.com"
+};
+    fetch("http://localhost:3000/contacts", {
+        method: 'POST',
+        body: JSON.stringify(contact),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+});
+
 
     fetch("http://localhost:3000/contacts")
         .then(function (response) {
