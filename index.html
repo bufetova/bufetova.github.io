@@ -1,4 +1,17 @@
 <ul id="contacts"></ul>
 <script>
+var container = document.getElementById("contacts");
+
+    fetch("http://localhost:3000/contacts")
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (contacts) {
+            contacts.forEach (function (contact) {
+                var listNode = document.createElement("li");
+                listNode.innerText = contact.firstName + " " + contact.lastName + " " + contact.phoneNumber + " " + contact.email;
+                container.appendChild(listNode)
+            })
+        })
 
 </script>
