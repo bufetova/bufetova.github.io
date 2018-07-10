@@ -13,9 +13,8 @@ var lastNameInput = document.getElementById("last_name");
 var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
 
-addContactButton.addEventListener("click", addNewContact);
 updateContactList();
-
+addContactButton.addEventListener("click", addNewContact);
 
 function addNewContact() {
     var contact = {
@@ -32,7 +31,15 @@ function addNewContact() {
             'Content-Type': 'application/json'
         }
     }).then(updateContactList)
+}
 
+function deleteContact(contactId) {
+    fetch("http://localhost:3000/contacts/" + contactId, {
+        method:"DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(updateContactList)
 }
 
 function getContactList() {
@@ -49,6 +56,9 @@ function displayContactList(contacts) {
         var listNode = document.createElement("li");
         var deleteBtn = document.createElement("button");
             deleteBtn.innerText = "Delete contact";
+            deleteBtn.addEventListener("click", function () {
+                deleteContact(contact.id)
+            });
             listNode.innerText = contact.firstName + " " + contact.lastName + " " + contact.phoneNumber + " " + contact.email;
             container.appendChild(listNode);
             listNode.appendChild(deleteBtn);
