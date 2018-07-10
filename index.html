@@ -14,7 +14,8 @@ var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
 
 addContactButton.addEventListener("click", addNewContact);
-getContactList().then(displayContactList);
+updateContactList();
+
 
 function addNewContact() {
     var contact = {
@@ -23,13 +24,15 @@ function addNewContact() {
         phoneNumber: phoneNumberInput.value,
         email: emailInput.value
     };
+
     fetch("http://localhost:3000/contacts", {
         method: 'POST',
         body: JSON.stringify(contact),
         headers: {
             'Content-Type': 'application/json'
         }
-    })
+    }).then(updateContactList)
+
 }
 
 function getContactList() {
@@ -41,11 +44,16 @@ function getContactList() {
 }
 
 function displayContactList(contacts) {
+    container.innerText = "";
     contacts.forEach (function (contact) {
         var listNode = document.createElement("li");
             listNode.innerText = contact.firstName + " " + contact.lastName + " " + contact.phoneNumber + " " + contact.email;
             container.appendChild(listNode)
     })
+}
+
+function updateContactList() {
+    getContactList().then(displayContactList)
 }
 
 </script>
