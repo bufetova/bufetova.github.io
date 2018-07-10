@@ -13,13 +13,16 @@ var lastNameInput = document.getElementById("last_name");
 var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
 
-addContactButton.addEventListener("click", function () {
-var contact = {
-    firstName: firstNameInput.value,
-    lastName: lastNameInput.value,
-    phoneNumber: phoneNumberInput.value,
-    email: emailInput.value
-};
+addContactButton.addEventListener("click", addNewContact);
+getContactList().then(displayContactList);
+
+function addNewContact() {
+    var contact = {
+        firstName: firstNameInput.value,
+        lastName: lastNameInput.value,
+        phoneNumber: phoneNumberInput.value,
+        email: emailInput.value
+    };
     fetch("http://localhost:3000/contacts", {
         method: 'POST',
         body: JSON.stringify(contact),
@@ -27,7 +30,7 @@ var contact = {
             'Content-Type': 'application/json'
         }
     })
-});
+}
 
 function getContactList() {
     return fetch("http://localhost:3000/contacts")
@@ -36,14 +39,13 @@ function getContactList() {
         }
     )
 }
-    function displayContactList(contacts) {
-        contacts.forEach (function (contact) {
-            var listNode = document.createElement("li");
+
+function displayContactList(contacts) {
+    contacts.forEach (function (contact) {
+        var listNode = document.createElement("li");
             listNode.innerText = contact.firstName + " " + contact.lastName + " " + contact.phoneNumber + " " + contact.email;
             container.appendChild(listNode)
-        })
-    }
-
-    getContactList().then(displayContactList);
+    })
+}
 
 </script>
