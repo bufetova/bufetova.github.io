@@ -29,17 +29,21 @@ var contact = {
     })
 });
 
-
-    fetch("http://localhost:3000/contacts")
+function getContactList() {
+    return fetch("http://localhost:3000/contacts")
         .then(function (response) {
             return response.json()
+        }
+    )
+}
+    function displayContactList(contacts) {
+        contacts.forEach (function (contact) {
+            var listNode = document.createElement("li");
+            listNode.innerText = contact.firstName + " " + contact.lastName + " " + contact.phoneNumber + " " + contact.email;
+            container.appendChild(listNode)
         })
-        .then(function (contacts) {
-            contacts.forEach (function (contact) {
-                var listNode = document.createElement("li");
-                listNode.innerText = contact.firstName + " " + contact.lastName + " " + contact.phoneNumber + " " + contact.email;
-                container.appendChild(listNode)
-            })
-        })
+    }
+
+    getContactList().then(displayContactList);
 
 </script>
