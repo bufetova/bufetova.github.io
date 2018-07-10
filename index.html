@@ -47,8 +47,11 @@ function displayContactList(contacts) {
     container.innerText = "";
     contacts.forEach (function (contact) {
         var listNode = document.createElement("li");
+        var deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "Delete contact";
             listNode.innerText = contact.firstName + " " + contact.lastName + " " + contact.phoneNumber + " " + contact.email;
-            container.appendChild(listNode)
+            container.appendChild(listNode);
+            listNode.appendChild(deleteBtn);
     })
 }
 
