@@ -1,8 +1,8 @@
 
-<input id="first_name" placeholder = "first name" />
-<input id="last_name" placeholder = "last name" />
-<input id="phone_number" placeholder = "phone number" />
-<input id="email" placeholder = "email" />
+<input id="first_name" class= "user-data" placeholder = "first name" />
+<input id="last_name" class= "user-data" placeholder = "last name" />
+<input id="phone_number" class= "user-data" placeholder = "phone number" />
+<input id="email" class= "user-data" placeholder = "email" />
 <button id="add_button">Add new contact</button>
 
 
@@ -14,7 +14,8 @@ var firstNameInput = document.getElementById("first_name");
 var lastNameInput = document.getElementById("last_name");
 var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
-var inputs = document.getElementsByTagName("input");
+var inputs = document.getElementsByClassName("user-data");
+var changedData = document.getElementsByClassName("edit-fields");
 
 updateContactList();
 addContactButton.addEventListener("click", addNewContact);
@@ -74,7 +75,17 @@ function displayContactList(contacts) {
                 var editNode = document.createElement("div");
                 for (var i = 0; i < 4; i++) {
                     var editInputs = document.createElement("input");
+                        editInputs.classList.add("edit-fields");
+
+                        var changeNode = Array.from(changedData);
+                        changeNode[0] = contact.firstName;
+                        changeNode[1] = contact.lastName;
+                        changeNode[2] = contact.phoneNumber;
+                        changeNode[3] = contact.email;
+
+
                     editNode.appendChild(editInputs);
+
                 }
 
 
