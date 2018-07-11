@@ -65,17 +65,37 @@ function displayContactList(contacts) {
     container.innerText = "";
     contacts.forEach (function (contact) {
         var listNode = document.createElement("li");
+
+
+
         var editBtn = document.createElement("button");
             editBtn.innerText = "Edit";
+            editBtn.addEventListener("click", function () {
+                var editNode = document.createElement("div");
+                for (var i = 0; i < 4; i++) {
+                    var editInputs = document.createElement("input");
+                    editNode.appendChild(editInputs);
+                }
+
+
+
+                listNode.appendChild(editNode);
+            });
+
+
+
         var deleteBtn = document.createElement("button");
             deleteBtn.innerText = "Delete contact";
             deleteBtn.addEventListener("click", function () {
                 deleteContact(contact.id)
             });
+
             listNode.innerText = contact.firstName + " " + contact.lastName + " " + contact.phoneNumber + " " + contact.email;
             container.appendChild(listNode);
             listNode.appendChild(editBtn);
             listNode.appendChild(deleteBtn);
+
+
     })
 }
 
