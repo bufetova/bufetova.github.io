@@ -15,7 +15,7 @@ var lastNameInput = document.getElementById("last_name");
 var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
 var inputs = document.getElementsByClassName("user-data");
-var changedData = document.getElementsByClassName("edit-fields");
+
 
 updateContactList();
 addContactButton.addEventListener("click", addNewContact);
@@ -67,10 +67,10 @@ function displayContactList(contacts) {
     contacts.forEach (function (contact) {
         var listNode = document.createElement("li");
 
-
         var editBtn = document.createElement("button");
             editBtn.innerText = "Edit";
             editBtn.addEventListener("click", function () {
+                var changedData = document.getElementsByClassName("edit-fields");
                 var editNode = document.createElement("div");
                 for (var i = 0; i < 4; i++) {
                     var editInputs = document.createElement("input");
@@ -79,15 +79,20 @@ function displayContactList(contacts) {
                     editNode.appendChild(editInputs);
                 }
 
+                listNode.appendChild(editNode);
+
                 var changeNode = Array.from(changedData);
                 var saveBtn = document.createElement("button");
+
+                editNode.appendChild(saveBtn);
+
                 saveBtn.innerText = "Save";
                 saveBtn.addEventListener("click", function () {
                     var updatedData = {
                         firstName: changeNode[0].value,
-                        lastName: changeNode[0].value,
-                        phoneNumber: changeNode[0].value,
-                        email: changeNode[0].value
+                        lastName: changeNode[1].value,
+                        phoneNumber: changeNode[2].value,
+                        email: changeNode[3].value
                     };
 
                     fetch("http://localhost:3000/contacts/" + contact.id, {
@@ -97,11 +102,7 @@ function displayContactList(contacts) {
                             'Content-type': 'application/json'
                         }
                     }).then(updateContactList)
-
                 });
-
-                listNode.appendChild(editNode);
-                editNode.appendChild(saveBtn);
             });
 
 
@@ -116,8 +117,6 @@ function displayContactList(contacts) {
             container.appendChild(listNode);
             listNode.appendChild(editBtn);
             listNode.appendChild(deleteBtn);
-
-
     })
 }
 
