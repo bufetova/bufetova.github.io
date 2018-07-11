@@ -83,8 +83,11 @@ function displayContactList(contacts) {
                         changeNode[2] = contact.phoneNumber;
                         changeNode[3] = contact.email;
 
+        var saveBtn = document.createElement("button");
+            saveBtn.innerText = "Save";
 
                     editNode.appendChild(editInputs);
+                    editNode.appendChild(saveBtn);
 
                 }
 
