@@ -68,7 +68,6 @@ function displayContactList(contacts) {
         var listNode = document.createElement("li");
 
 
-
         var editBtn = document.createElement("button");
             editBtn.innerText = "Edit";
             editBtn.addEventListener("click", function () {
@@ -77,21 +76,29 @@ function displayContactList(contacts) {
                     var editInputs = document.createElement("input");
                         editInputs.classList.add("edit-fields");
 
-                        var changeNode = Array.from(changedData);
-                        changeNode[0] = contact.firstName;
-                        changeNode[1] = contact.lastName;
-                        changeNode[2] = contact.phoneNumber;
-                        changeNode[3] = contact.email;
-
-
-
                     editNode.appendChild(editInputs);
-
-
                 }
 
+                var changeNode = Array.from(changedData);
                 var saveBtn = document.createElement("button");
                 saveBtn.innerText = "Save";
+                saveBtn.addEventListener("click", function () {
+                    var updatedData = {
+                        firstName: changeNode[0].value,
+                        lastName: changeNode[0].value,
+                        phoneNumber: changeNode[0].value,
+                        email: changeNode[0].value
+                    };
+
+                    fetch("http://localhost:3000/contacts/" + contact.id, {
+                        method: "PATCH",
+                        body: JSON.stringify(updatedData),
+                        headers: {
+                            'Content-type': 'application/json'
+                        }
+                    }).then(updateContactList)
+
+                });
 
                 listNode.appendChild(editNode);
                 editNode.appendChild(saveBtn);
