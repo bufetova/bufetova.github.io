@@ -80,15 +80,16 @@
 
 <script>
 var container = document.getElementById("contacts");
-var addContactButton = document.getElementById("add_button");
+// var addContactButton = document.getElementById("add_button");
 var firstNameInput = document.getElementById("first_name");
 var lastNameInput = document.getElementById("last_name");
 var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
 var inputs = document.getElementsByClassName("user-data");
+var form = document.getElementById("form");
 
 updateContactList();
-addContactButton.addEventListener("click", validateData);
+form.addEventListener("submit", validateData);
 
 function addNewContact() {
     var contact = {
@@ -206,12 +207,16 @@ function updateContactList() {
 
 
 function validateData() {
-   if (firstNameInput.value == "" || lastNameInput.value == "" || phoneNumberInput.value == "" || emailInput.value == "") {
-       alert ("All fields must be filled in!");
-   }
-   else {
-       addNewContact();
-   }
+    if (firstNameInput.value == "" || lastNameInput.value == "" || phoneNumberInput.value == "" || emailInput.value == "") {
+        alert ("All fields must be filled in!");
+    }
+    else {
+        addNewContact();
+    }
 }
 
+
 </script>
+
+
+
