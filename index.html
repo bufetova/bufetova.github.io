@@ -2,20 +2,20 @@
 <body>
 <fieldset>
     <legend>Enter your data</legend>
-    <form>
+    <form id="form">
         <label>First name:</label>
         <input id="first_name" class="user-data" placeholder="First name" type="text"/>
         <label>Last name:</label>
         <input id="last_name" class="user-data" placeholder="Last name" type="text"/>
         <label>Mobile:</label>
         <input id="phone_number" class="user-data" placeholder="123456789" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" type="tel"/>
-        <label>E-mail address:</label><input id="email" class="user-data" placeholder="email@email.com" type ="email"/>
-        <button id="add_button">Add new contact</button>
+        <label>E-mail address:</label>
+        <input id="email" class="user-data" placeholder="email@email.com" type ="email"/>
+        <button id="add_button" type="submit">Add new contact</button>
     </form>
+    <ul id="contacts"></ul>
 </fieldset>
 </body>
-
-<ul id="contacts"></ul>
 
 <style>
 
@@ -26,7 +26,7 @@
 
     fieldset {
         padding-top: 20px;
-        width: 300px;
+        width: 80%;
     }
 
     legend {
@@ -40,7 +40,7 @@
 
     label {
         font-family: Lato, sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         font-weight: bolder;
     }
 
@@ -87,9 +87,8 @@ var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
 var inputs = document.getElementsByClassName("user-data");
 
-
 updateContactList();
-addContactButton.addEventListener("click", addNewContact);
+addContactButton.addEventListener("click", validateData);
 
 function addNewContact() {
     var contact = {
@@ -203,6 +202,16 @@ function displayContactList(contacts) {
 
 function updateContactList() {
     getContactList().then(displayContactList)
+}
+
+
+function validateData() {
+   if (firstNameInput.value == "" || lastNameInput.value == "" || phoneNumberInput.value == "" || emailInput.value == "") {
+       alert ("All fields must be filled in!");
+   }
+   else {
+       addNewContact();
+   }
 }
 
 </script>
