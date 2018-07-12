@@ -64,8 +64,14 @@ function getContactList() {
 
 function displayContactList(contacts) {
     container.innerText = "";
+    contacts.sort(function(a,b){
+        return a.lastName.localeCompare(b.lastName);
+    });
+
     contacts.forEach (function (contact) {
         var listNode = document.createElement("li");
+
+
 
         var editBtn = document.createElement("button");
             editBtn.innerText = "Edit";
@@ -117,7 +123,7 @@ function displayContactList(contacts) {
             container.appendChild(listNode);
             listNode.appendChild(editBtn);
             listNode.appendChild(deleteBtn);
-    })
+    });
 }
 
 function updateContactList() {
