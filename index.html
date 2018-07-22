@@ -181,6 +181,7 @@ function displayContactList(contacts) {
                 function validateChangedData() {
                     if (changeNode[0].value == "" || changeNode[1].value == "" || changeNode[2].value == "" || changeNode[3].value == "") {
                         alert ("All fields must be filled in!");
+                        event.preventDefault();
                     }
                     else {
                         addNewData();
@@ -226,6 +227,7 @@ function updateContactList() {
 function validateData() {
     if (firstNameInput.value == "" || lastNameInput.value == "" || phoneNumberInput.value == "" || emailInput.value == "") {
         alert ("All fields must be filled in!");
+        event.preventDefault();
     }
     else {
         addNewContact();
