@@ -14,14 +14,14 @@
         <button id="add_button" type="submit">Add new contact</button>
     </form>
     <ul id="contacts"></ul>
-    <button id="delete_selected">Delete selected</button>
+    <button id="delete_selected" disabled>Delete selected</button>
 </fieldset>
 </body>
 
 <style>
 
     body {
-        background: lightgrey;
+        background: #d3d3d3;
     }
 
 
@@ -31,8 +31,8 @@
     }
 
     legend {
-        background: black;
-        color: white;
+        background: #000000;
+        color: #ffffff;
         font-size: 20px;
         font-family: Lato, sans-serif;
         padding: 3px 6px;
@@ -49,7 +49,7 @@
         display: block;
         margin-bottom: 10px;
         padding: 10px;
-        border: 1px solid black;
+        border: 1px solid #000000;
         border-radius: 5px;
         height: 20px;
         text-align: center;
@@ -57,9 +57,9 @@
     }
 
     button {
-        border: 1px solid lightslategrey;
+        border: 1px solid #778899;
         border-radius: 10px;
-        background-color: lightslategrey;
+        background-color: #778899;
         height: 30px;
         font-weight: bolder;
     }
@@ -77,8 +77,20 @@
     }
      .edit-btn, .delete-btn, .save-btn {
         margin: 4px;
-        height: 20px;
+        height: 20px
+    }
+
+    .edit-btn, .delete-btn {
         width: 30px;
+    }
+
+    .edit-btn {
+        margin-left: 14px;
+    }
+
+    :disabled {
+        opacity: 0.5;
+        color: #2d2d2d;
     }
 
 </style>
@@ -92,9 +104,12 @@ var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
 var inputs = document.getElementsByClassName("user-data");
 var form = document.getElementById("form");
+var deleteSelectedBtn = document.getElementById("delete_selected");
 
 updateContactList();
 form.addEventListener("submit", validateData);
+
+
 
 function addNewContact() {
     var contact = {
@@ -146,6 +161,7 @@ function displayContactList(contacts) {
 
     contacts.forEach (function (contact) {
         var listNode = document.createElement("li");
+
         var checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.classList.add("checkbox");
@@ -166,7 +182,6 @@ function displayContactList(contacts) {
                 }
 
                 listNode.appendChild(editNode);
-
 
                 var changeNode = Array.from(changedData);
                     changeNode[0].placeholder = "First name";
@@ -221,7 +236,7 @@ function displayContactList(contacts) {
                 deleteContact(contact.id)
             });
 
-            listNode.innerHTML = "<b> Full name: </b>" + contact.firstName + " " + contact.lastName + ", <b>Mobile: </b>" + contact.phoneNumber + ", <b>E-mail: </b>" + contact.email;
+            listNode.innerHTML = "<b> Full name: </b>" + contact.firstName + " " + contact.lastName + " | <b>Mobile: </b>" + contact.phoneNumber + " | <b>E-mail: </b>" + contact.email;
             container.appendChild(listNode);
             listNode.appendChild(editBtn);
             listNode.appendChild(deleteBtn);
