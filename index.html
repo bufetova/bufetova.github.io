@@ -78,6 +78,7 @@
      .edit-btn, .delete-btn, .save-btn {
         margin: 4px;
         height: 20px;
+        width: 30px;
     }
 
 </style>
@@ -151,7 +152,7 @@ function displayContactList(contacts) {
 
         var editBtn = document.createElement("button");
             editBtn.classList.add("edit-btn");
-            editBtn.innerText = "Edit";
+            editBtn.innerHTML = '<i class="far fa-edit"></i>';
             editBtn.addEventListener("click", function () {
                 var changedData = document.getElementsByClassName("edit-fields");
 
@@ -215,7 +216,7 @@ function displayContactList(contacts) {
 
         var deleteBtn = document.createElement("button");
             deleteBtn.classList.add("delete-btn");
-            deleteBtn.innerText = "Delete contact";
+            deleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>';
             deleteBtn.addEventListener("click", function () {
                 deleteContact(contact.id)
             });
@@ -243,6 +244,7 @@ function validateData() {
 }
 
 </script>
+<script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
 
 
 
