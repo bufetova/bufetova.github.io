@@ -14,7 +14,7 @@
         <button id="add_button" type="submit">Add new contact</button>
     </form>
     <ul id="contacts"></ul>
-    <button id="delete_selected" disabled>Delete selected</button>
+    <button id="delete_selected">Delete selected</button>
 </fieldset>
 </body>
 
@@ -45,7 +45,7 @@
         font-weight: bolder;
     }
 
-    input:not(.checkbox) {
+    input:not(.checkbox-group) {
         display: block;
         margin-bottom: 10px;
         padding: 10px;
@@ -88,10 +88,6 @@
         margin-left: 14px;
     }
 
-    :disabled {
-        opacity: 0.5;
-        color: #2d2d2d;
-    }
 
 </style>
 
@@ -106,9 +102,10 @@ var inputs = document.getElementsByClassName("user-data");
 var form = document.getElementById("form");
 var deleteSelectedBtn = document.getElementById("delete_selected");
 
+
 updateContactList();
 form.addEventListener("submit", validateData);
-
+deleteSelectedBtn.addEventListener("click", deleteSelectedContacts);
 
 
 function addNewContact() {
@@ -145,6 +142,14 @@ function deleteContact(contactId) {
     }).then(updateContactList)
 }
 
+function deleteSelectedContacts() {
+    var checkedCheckboxes = document.querySelectorAll("input:checked");
+    checkedCheckboxes.forEach(function (checkbox) {
+        var contactId = checkbox.getAttribute("data-contact-id");
+        deleteContact(contactId)
+    })
+}
+
 function getContactList() {
     return fetch("http://localhost:3000/contacts")
         .then(function (response) {
@@ -164,19 +169,22 @@ function displayContactList(contacts) {
 
         var checkbox = document.createElement("input");
         checkbox.type = "checkbox";
-        checkbox.classList.add("checkbox");
+        checkbox.classList.add("checkbox-group");
+        checkbox.setAttribute("data-contact-id", contact.id);
 
         var editBtn = document.createElement("button");
             editBtn.classList.add("edit-btn");
             editBtn.innerHTML = '<i class="far fa-edit"></i>';
-            editBtn.addEventListener("click", function () {
-                var changedData = document.getElementsByClassName("edit-fields");
+            editBtn.addEventListener("click", modifyData);
 
+
+            function modifyData () {
+                var changedData = document.getElementsByClassName("edit-fields");
 
                 var editNode = document.createElement("form");
                 for (var i = 0; i < 4; i++) {
                     var editInputs = document.createElement("input");
-                        editInputs.classList.add("edit-fields");
+                    editInputs.classList.add("edit-fields");
 
                     editNode.appendChild(editInputs);
                 }
@@ -226,12 +234,14 @@ function displayContactList(contacts) {
                             'Content-type': 'application/json'
                         }
                     }).then(updateContactList)
-                };
-            });
+                }
+            }
+
 
         var deleteBtn = document.createElement("button");
             deleteBtn.classList.add("delete-btn");
             deleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>';
+
             deleteBtn.addEventListener("click", function () {
                 deleteContact(contact.id)
             });
@@ -257,6 +267,7 @@ function validateData() {
         addNewContact();
     }
 }
+
 
 </script>
 <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
