@@ -168,76 +168,14 @@ function displayContactList(contacts) {
         var listNode = document.createElement("li");
 
         var checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.classList.add("checkbox-group");
-        checkbox.setAttribute("data-contact-id", contact.id);
+            checkbox.type = "checkbox";
+            checkbox.classList.add("checkbox-group");
+            checkbox.setAttribute("data-contact-id", contact.id);
 
         var editBtn = document.createElement("button");
             editBtn.classList.add("edit-btn");
             editBtn.innerHTML = '<i class="far fa-edit"></i>';
             editBtn.addEventListener("click", modifyData, {once : true});
-
-
-            function modifyData () {
-                var changedData = document.getElementsByClassName("edit-fields");
-
-                var editNode = document.createElement("form");
-                for (var i = 0; i < 4; i++) {
-                    var editInputs = document.createElement("input");
-                    editInputs.classList.add("edit-fields");
-
-                    editNode.appendChild(editInputs);
-                }
-
-                listNode.appendChild(editNode);
-
-                var changeNode = Array.from(changedData);
-                    changeNode[0].placeholder = "First name";
-                    changeNode[1].placeholder = "Last name";
-                    changeNode[2].placeholder = "123456789";
-                    changeNode[2].type = "tel";
-                    changeNode[2].pattern = "[0-9]{3}[0-9]{3}[0-9]{3}";
-                    changeNode[3].placeholder = "email@email.com";
-                    changeNode[3].type = "email";
-
-                var saveBtn = document.createElement("button");
-                    saveBtn.classList.add("save-btn");
-
-                editNode.appendChild(saveBtn);
-
-                saveBtn.innerText = "Save";
-                saveBtn.type = "submit";
-                editNode.addEventListener("submit", validateChangedData);
-
-                function validateChangedData() {
-                    if (changeNode[0].value == "" || changeNode[1].value == "" || changeNode[2].value == "" || changeNode[3].value == "") {
-                        alert ("All fields must be filled in!");
-                        event.preventDefault();
-                    }
-                    else {
-                        addNewData();
-                    }
-                }
-
-                function addNewData() {
-                    var updatedData = {
-                        firstName: changeNode[0].value,
-                        lastName: changeNode[1].value,
-                        phoneNumber: changeNode[2].value,
-                        email: changeNode[3].value
-                    };
-
-                    fetch("http://localhost:3000/contacts/" + contact.id, {
-                        method: "PATCH",
-                        body: JSON.stringify(updatedData),
-                        headers: {
-                            'Content-type': 'application/json'
-                        }
-                    }).then(updateContactList)
-                }
-                event.preventDefault()
-            }
-
 
         var deleteBtn = document.createElement("button");
             deleteBtn.classList.add("delete-btn");
@@ -252,6 +190,66 @@ function displayContactList(contacts) {
             listNode.appendChild(editBtn);
             listNode.appendChild(deleteBtn);
             listNode.prepend(checkbox);
+
+        function modifyData () {
+            var changedData = document.getElementsByClassName("edit-fields");
+
+            var editNode = document.createElement("form");
+            for (var i = 0; i < 4; i++) {
+                var editInputs = document.createElement("input");
+                editInputs.classList.add("edit-fields");
+
+                editNode.appendChild(editInputs);
+            }
+
+            listNode.appendChild(editNode);
+
+            var changeNode = Array.from(changedData);
+                changeNode[0].placeholder = "First name";
+                changeNode[1].placeholder = "Last name";
+                changeNode[2].placeholder = "123456789";
+                changeNode[2].type = "tel";
+                changeNode[2].pattern = "[0-9]{3}[0-9]{3}[0-9]{3}";
+                changeNode[3].placeholder = "email@email.com";
+                changeNode[3].type = "email";
+
+            var saveBtn = document.createElement("button");
+                saveBtn.classList.add("save-btn");
+                saveBtn.innerText = "Save";
+                saveBtn.type = "submit";
+
+            editNode.appendChild(saveBtn);
+
+            editNode.addEventListener("submit", validateChangedData);
+
+            function validateChangedData() {
+                if (changeNode[0].value == "" || changeNode[1].value == "" || changeNode[2].value == "" || changeNode[3].value == "") {
+                    alert ("All fields must be filled in!");
+                    event.preventDefault();
+                }
+                else {
+                    addNewData();
+                }
+            }
+
+            function addNewData() {
+                var updatedData = {
+                    firstName: changeNode[0].value,
+                    lastName: changeNode[1].value,
+                    phoneNumber: changeNode[2].value,
+                    email: changeNode[3].value
+                };
+
+                fetch("http://localhost:3000/contacts/" + contact.id, {
+                    method: "PATCH",
+                    body: JSON.stringify(updatedData),
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                }).then(updateContactList)
+            }
+            event.preventDefault()
+        }
     });
 }
 
