@@ -175,7 +175,7 @@ function displayContactList(contacts) {
         var editBtn = document.createElement("button");
             editBtn.classList.add("edit-btn");
             editBtn.innerHTML = '<i class="far fa-edit"></i>';
-            editBtn.addEventListener("click", modifyData);
+            editBtn.addEventListener("click", modifyData, {once : true});
 
 
             function modifyData () {
@@ -235,6 +235,7 @@ function displayContactList(contacts) {
                         }
                     }).then(updateContactList)
                 }
+                event.preventDefault()
             }
 
 
