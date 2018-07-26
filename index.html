@@ -75,7 +75,7 @@
     #delete_selected {
         width: 125px;
     }
-     .edit-btn, .delete-btn, .save-btn {
+     .edit-btn, .delete-btn, .save-btn, .close-btn {
         margin: 4px;
         height: 20px
     }
@@ -175,7 +175,8 @@ function displayContactList(contacts) {
         var editBtn = document.createElement("button");
             editBtn.classList.add("edit-btn");
             editBtn.innerHTML = '<i class="far fa-edit"></i>';
-            editBtn.addEventListener("click", modifyData, {once : true});
+
+            editBtn.addEventListener("click", modifyData);
 
         var deleteBtn = document.createElement("button");
             deleteBtn.classList.add("delete-btn");
@@ -192,7 +193,7 @@ function displayContactList(contacts) {
             listNode.prepend(checkbox);
 
         function modifyData () {
-            var changedData = document.getElementsByClassName("edit-fields");
+
 
             var editNode = document.createElement("form");
             for (var i = 0; i < 4; i++) {
@@ -204,6 +205,27 @@ function displayContactList(contacts) {
 
             listNode.appendChild(editNode);
 
+            var saveBtn = document.createElement("button");
+                saveBtn.classList.add("save-btn");
+                saveBtn.innerText = "Save";
+                saveBtn.type = "submit";
+
+            editNode.appendChild(saveBtn);
+
+            var closeBtn = document.createElement("button");
+                closeBtn.classList.add("close-btn");
+                closeBtn.type = "button";
+                closeBtn.innerText = "Close";
+
+                editNode.appendChild(closeBtn);
+
+                closeBtn.addEventListener("click", function () {
+                    listNode.removeChild(editNode);
+                });
+
+            editNode.addEventListener("submit", validateChangedData);
+
+            var changedData = document.getElementsByClassName("edit-fields");
             var changeNode = Array.from(changedData);
                 changeNode[0].placeholder = "First name";
                 changeNode[1].placeholder = "Last name";
@@ -212,15 +234,6 @@ function displayContactList(contacts) {
                 changeNode[2].pattern = "[0-9]{3}[0-9]{3}[0-9]{3}";
                 changeNode[3].placeholder = "email@email.com";
                 changeNode[3].type = "email";
-
-            var saveBtn = document.createElement("button");
-                saveBtn.classList.add("save-btn");
-                saveBtn.innerText = "Save";
-                saveBtn.type = "submit";
-
-            editNode.appendChild(saveBtn);
-
-            editNode.addEventListener("submit", validateChangedData);
 
             function validateChangedData() {
                 if (changeNode[0].value == "" || changeNode[1].value == "" || changeNode[2].value == "" || changeNode[3].value == "") {
@@ -248,7 +261,7 @@ function displayContactList(contacts) {
                     }
                 }).then(updateContactList)
             }
-            event.preventDefault()
+            event.preventDefault();
         }
     });
 }
