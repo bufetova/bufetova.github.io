@@ -221,6 +221,7 @@ function displayContactList(contacts) {
 
                 closeBtn.addEventListener("click", function () {
                     listNode.removeChild(editNode);
+                    editBtn.addEventListener("click", modifyData)
                 });
 
             editNode.addEventListener("submit", validateChangedData);
@@ -261,6 +262,8 @@ function displayContactList(contacts) {
                     }
                 }).then(updateContactList)
             }
+
+            editBtn.removeEventListener("click", modifyData);
             event.preventDefault();
         }
     });
