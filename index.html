@@ -14,7 +14,7 @@
         <button id="add_button" type="submit">Add new contact</button>
     </form>
     <ul id="contacts"></ul>
-    <button id="delete_selected">Delete selected</button>
+    <!--<button id="delete_selected">Delete selected</button>-->
 </fieldset>
 </body>
 
@@ -93,19 +93,17 @@
 
 <script>
 var container = document.getElementById("contacts");
-// var addContactButton = document.getElementById("add_button");
 var firstNameInput = document.getElementById("first_name");
 var lastNameInput = document.getElementById("last_name");
 var phoneNumberInput = document.getElementById("phone_number");
 var emailInput = document.getElementById("email");
 var inputs = document.getElementsByClassName("user-data");
 var form = document.getElementById("form");
-var deleteSelectedBtn = document.getElementById("delete_selected");
 
 
 updateContactList();
 form.addEventListener("submit", validateData);
-deleteSelectedBtn.addEventListener("click", deleteSelectedContacts);
+
 
 
 function addNewContact() {
@@ -193,8 +191,6 @@ function displayContactList(contacts) {
             listNode.prepend(checkbox);
 
         function modifyData () {
-
-
             var editNode = document.createElement("form");
             for (var i = 0; i < 4; i++) {
                 var editInputs = document.createElement("input");
@@ -267,6 +263,17 @@ function displayContactList(contacts) {
             event.preventDefault();
         }
     });
+
+    var deleteSelectedBtn = document.createElement("button");
+    deleteSelectedBtn.innerText = "Delete selected";
+    container.appendChild(deleteSelectedBtn);
+
+    deleteSelectedBtn.addEventListener("click", deleteSelectedContacts);
+
+    if (container.getElementsByTagName("li").length == 0) {
+        container.removeChild(deleteSelectedBtn)
+    }
+
 }
 
 function updateContactList() {
