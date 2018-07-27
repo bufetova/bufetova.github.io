@@ -14,7 +14,6 @@
         <button id="add_button" type="submit">Add new contact</button>
     </form>
     <ul id="contacts"></ul>
-    <!--<button id="delete_selected">Delete selected</button>-->
 </fieldset>
 </body>
 
@@ -103,8 +102,6 @@ var form = document.getElementById("form");
 
 updateContactList();
 form.addEventListener("submit", validateData);
-
-
 
 function addNewContact() {
     var contact = {
@@ -273,7 +270,6 @@ function displayContactList(contacts) {
     if (container.getElementsByTagName("li").length == 0) {
         container.removeChild(deleteSelectedBtn)
     }
-
 }
 
 function updateContactList() {
@@ -283,11 +279,11 @@ function updateContactList() {
 function validateData() {
     if (firstNameInput.value == "" || lastNameInput.value == "" || phoneNumberInput.value == "" || emailInput.value == "") {
         alert ("All fields must be filled in!");
-        event.preventDefault();
     }
     else {
         addNewContact();
     }
+    event.preventDefault();
 }
 
 
