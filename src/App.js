@@ -4,7 +4,10 @@ import './App.css'
 class App extends React.Component {
 
   state = {
-    contactInputValue: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    email: "",
     contacts: []
   };
 
@@ -12,7 +15,12 @@ class App extends React.Component {
     event.preventDefault ()
 
     this.setState({
-      contacts: this.state.contacts.concat({
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        email: "",
+
+        contacts: this.state.contacts.concat({
         id: Date.now().toString(32),
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -38,22 +46,18 @@ componentDidMount() {
         <h1>Contact List</h1>
         <form onSubmit={this.handleSubmit}>
 
-          <input type="text" name="firstName" value={this.state.contacts.contactInputValue}
-           onChange={(event) => this.setState({
-             firstName: event.currentTarget.value
-           })}/>
-          <input type="text" name="lastName" value={this.state.contacts.contactInputValue}
-            onChange={(event) => this.setState({
-              lastName: event.currentTarget.value
-           })}/>
-          <input type="text" name="phoneNumber" value={this.state.contacts.contactInputValue}
-            onChange={(event) => this.setState({
-              phoneNumber: event.currentTarget.value
-           })}/>
-          <input type="text" name="email" value={this.state.contacts.contactInputValue}
-           onChange={(event) => this.setState({
-             email: event.currentTarget.value
-           })}/>
+          <input name="firstName" value={this.state.firstName} onChange={(event) => this.setState({
+            firstName: event.currentTarget.value
+          })}/>
+          <input name="lastName" value={this.state.lastName} onChange={(event) => this.setState({
+            lastName: event.currentTarget.value
+          })}/>
+          <input name="phoneNumber" value={this.state.phoneNumber} onChange={(event) => this.setState({
+            phoneNumber: event.currentTarget.value
+          })}/>
+          <input name="email" value={this.state.email} onChange={(event) => this.setState({
+            email: event.currentTarget.value
+          })}/>
 
           <button>Add contact</button>
         </form>
