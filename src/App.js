@@ -28,6 +28,8 @@ componentDidMount() {
           {this.state.contacts.map(contact => (
               <li key={contact.id}>
                 {contact.firstName} {contact.lastName} {contact.phoneNumber} {contact.email}
+                <button>Delete</button>
+                <button>Edit</button>
               </li>
             )
           )}
