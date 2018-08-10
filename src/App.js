@@ -11,8 +11,23 @@ class App extends React.Component {
     contacts: []
   };
 
+  deleteContact = (contactId) => {
+      fetch("http://localhost:3000/contacts/" + contactId, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    this.setState({
+      contacts: this.state.contacts.filter(
+        contact => contact.id !== contactId
+      )
+    })
+  }
+
   handleSubmit = event => {
     event.preventDefault ()
+
 
     this.setState({
         firstName: "",
@@ -65,7 +80,7 @@ componentDidMount() {
           {this.state.contacts.map(contact => (
               <li key={contact.id}>
                 {contact.firstName} {contact.lastName} {contact.phoneNumber} {contact.email}
-                <button>Delete</button>
+                <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
                 <button>Edit</button>
               </li>
             )
