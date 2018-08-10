@@ -16,7 +16,7 @@ class App extends React.Component {
         method: "DELETE",
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
       })
     this.setState({
       contacts: this.state.contacts.filter(
@@ -28,6 +28,18 @@ class App extends React.Component {
   handleSubmit = event => {
     event.preventDefault ()
 
+    fetch("http://localhost:3000/contacts", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        phoneNumber: this.state.phoneNumber,
+        email: this.state.email,
+      })
+    })
 
     this.setState({
         firstName: "",
@@ -55,7 +67,7 @@ componentDidMount() {
 }
 
   render() {
-
+  const {form} = this.state
     return (
       <div className="App">
         <h1>Contact List</h1>
