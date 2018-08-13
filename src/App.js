@@ -17,29 +17,17 @@ class App extends React.Component {
         headers: {
           'Content-Type': 'application/json'
         },
-      })
+      });
+
     this.setState({
       contacts: this.state.contacts.filter(
         contact => contact.id !== contactId
       )
     })
-  }
+  };
 
   handleSubmit = event => {
-    event.preventDefault ()
-
-    fetch("http://localhost:3000/contacts", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        phoneNumber: this.state.phoneNumber,
-        email: this.state.email,
-      })
-    })
+    event.preventDefault ();
 
     this.setState({
         firstName: "",
@@ -55,19 +43,33 @@ class App extends React.Component {
         email: this.state.email
         }
       )
-    })
-  }
+    });
+
+    fetch("http://localhost:3000/contacts", {
+      method: "POST",
+      body: JSON.stringify({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        phoneNumber: this.state.phoneNumber,
+        email: this.state.email,
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  };
 
 componentDidMount() {
   fetch("http://localhost:3000/contacts")
     .then(response => response.json())
-    .then(contacts => this.setState({contacts})
-
-    )
+    .then((contacts) => {
+      contacts.sort((a, b) => a.lastName.localeCompare(b.lastName));
+      this.setState({contacts})
+    })
 }
 
-  render() {
-  const {form} = this.state
+render() {
+  const {form} = this.state;
     return (
       <div className="App">
         <h1>Contact List</h1>
@@ -92,6 +94,7 @@ componentDidMount() {
           {this.state.contacts.map(contact => (
               <li key={contact.id}>
                 {contact.firstName} {contact.lastName} {contact.phoneNumber} {contact.email}
+
                 <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
                 <button>Edit</button>
               </li>
