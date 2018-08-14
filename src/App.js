@@ -30,11 +30,6 @@ class App extends React.Component {
     event.preventDefault ();
 
     this.setState({
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
-        email: "",
-
         contacts: this.state.contacts.concat({
         id: Date.now().toString(32),
         firstName: this.state.firstName,
@@ -56,21 +51,30 @@ class App extends React.Component {
       headers: {
         'Content-Type': 'application/json'
       }
-    });
-  };
+    }).then(this.setState({
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
+      email: ""
+    })
+   ).then(sync())
+ };
 
 componentDidMount() {
+  sync()
+}
+
+sync = () => {
   fetch("http://localhost:3000/contacts")
     .then(response => response.json())
     .then((contacts) => {
       contacts.sort((a, b) => a.lastName.localeCompare(b.lastName));
       this.setState({contacts})
     })
-}
+};
 
 render() {
-  const {form} = this.state;
-    return (
+   return (
       <div className="App">
         <h1>Contact List</h1>
         <form onSubmit={this.handleSubmit}>
