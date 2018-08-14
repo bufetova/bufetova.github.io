@@ -11,19 +11,17 @@ class App extends React.Component {
     contacts: []
   };
 
-  deleteContact = (contactId) => {
-      fetch("http://localhost:3000/contacts/" + contactId, {
-        method: "DELETE",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      });
+  componentDidMount() {
+    this.sync()
+  }
 
-    this.setState({
-      contacts: this.state.contacts.filter(
-        contact => contact.id !== contactId
-      )
-    })
+  sync = () => {
+    fetch("http://localhost:3000/contacts")
+      .then(response => response.json())
+      .then((contacts) => {
+        contacts.sort((a, b) => a.lastName.localeCompare(b.lastName));
+        this.setState({contacts})
+      })
   };
 
   handleSubmit = event => {
@@ -57,21 +55,25 @@ class App extends React.Component {
       phoneNumber: "",
       email: ""
     })
-   ).then(sync())
+   ).then(this.sync)
  };
 
-componentDidMount() {
-  sync()
-}
+  deleteContact = (contactId) => {
+    fetch("http://localhost:3000/contacts/" + contactId, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
 
-sync = () => {
-  fetch("http://localhost:3000/contacts")
-    .then(response => response.json())
-    .then((contacts) => {
-      contacts.sort((a, b) => a.lastName.localeCompare(b.lastName));
-      this.setState({contacts})
+    this.setState({
+      contacts: this.state.contacts.filter(
+        contact => contact.id !== contactId
+      )
     })
-};
+  };
+
+
 
 render() {
    return (
