@@ -1,4 +1,5 @@
 import React from 'react'
+import EditInputs from './EditInputs.js'
 import './App.css'
 
 class App extends React.Component {
@@ -8,7 +9,8 @@ class App extends React.Component {
     lastName: "",
     phoneNumber: "",
     email: "",
-    contacts: []
+    contacts: [],
+    showInputs: false
   };
 
   componentDidMount() {
@@ -73,6 +75,10 @@ class App extends React.Component {
     })
   };
 
+  editContact = (contactId) => {
+    this.setState({
+      showInputs: true});
+  };
 
 
 render() {
@@ -100,9 +106,10 @@ render() {
           {this.state.contacts.map(contact => (
               <li key={contact.id}>
                 {contact.firstName} {contact.lastName} {contact.phoneNumber} {contact.email}
+                {this.state.showInputs ? <EditInputs/> : null}
 
                 <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
-                <button>Edit</button>
+                <button onClick={() => this.editContact(contact.id)}>Edit</button>
               </li>
             )
           )}
