@@ -10,7 +10,7 @@ class App extends React.Component {
     phoneNumber: "",
     email: "",
     contacts: [],
-    showInputs: false
+    showInputsForContact: null
   };
 
   componentDidMount() {
@@ -77,7 +77,8 @@ class App extends React.Component {
 
   editContact = (contactId) => {
     this.setState({
-      showInputs: true});
+      showInputsForContact: contactId
+    });
   };
 
 
@@ -106,7 +107,7 @@ render() {
           {this.state.contacts.map(contact => (
               <li key={contact.id}>
                 {contact.firstName} {contact.lastName} {contact.phoneNumber} {contact.email}
-                {this.state.showInputs ? <EditInputs/> : null}
+                {this.state.showInputsForContact === contact.id ? <EditInputs/> : null}
 
                 <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
                 <button onClick={() => this.editContact(contact.id)}>Edit</button>
