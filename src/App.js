@@ -88,16 +88,16 @@ render() {
         <h1>Contact List</h1>
         <form onSubmit={this.handleSubmit}>
 
-          <input name="firstName" value={this.state.firstName} onChange={(event) => this.setState({
+          <input name="firstName" placeholder="First name" value={this.state.firstName} onChange={(event) => this.setState({
             firstName: event.currentTarget.value
           })}/>
-          <input name="lastName" value={this.state.lastName} onChange={(event) => this.setState({
+          <input name="lastName" placeholder="Last name" value={this.state.lastName} onChange={(event) => this.setState({
             lastName: event.currentTarget.value
           })}/>
-          <input name="phoneNumber" value={this.state.phoneNumber} onChange={(event) => this.setState({
+          <input name="phoneNumber" placeholder="Phone number" value={this.state.phoneNumber} onChange={(event) => this.setState({
             phoneNumber: event.currentTarget.value
           })}/>
-          <input name="email" value={this.state.email} onChange={(event) => this.setState({
+          <input name="email" placeholder="Email" value={this.state.email} onChange={(event) => this.setState({
             email: event.currentTarget.value
           })}/>
 
@@ -110,7 +110,7 @@ render() {
 
                 <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
                 <button onClick={() => this.editContact(contact.id)}>Edit</button>
-                {this.state.showInputsForContact === contact.id ? <EditInputs contactId={contact.id} /> : null}
+                {this.state.showInputsForContact === contact.id ? <EditInputs contactId={contact.id} syncContacts={this.syncContacts}/> : null}
               </li>
             )
           )}

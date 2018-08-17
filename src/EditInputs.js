@@ -14,6 +14,7 @@ class EditInputs extends React.Component {
 updateContact = (event) => {
   event.preventDefault();
 
+
   this.setState({
     firstName: this.state.firstName,
     lastName: this.state.lastName,
@@ -38,21 +39,20 @@ updateContact = (event) => {
       phoneNumber: "",
       email: "",
     })
-  ).then(this.syncContacts)
+  ).then(this.props.syncContacts)
 };
-
 
   render () {
     return (
       <div>
         <form onSubmit={this.updateContact}>
-            <input name="firstName" value={this.state.firstName} onChange={(event) => this.setState({
+            <input name="firstName" placeholder="First name" value={this.state.firstName} onChange={(event) => this.setState({
               firstName: event.currentTarget.value })}/>
-            <input name="lastName" value={this.state.lastName} onChange={(event) => this.setState({
+            <input name="lastName" placeholder="Last name" value={this.state.lastName} onChange={(event) => this.setState({
               lastName: event.currentTarget.value })}/>
-            <input name="phoneNumber" value={this.state.phoneNumber} onChange={(event) => this.setState({
+            <input name="phoneNumber" placeholder="Phone number" value={this.state.phoneNumber} onChange={(event) => this.setState({
               phoneNumber: event.currentTarget.value })}/>
-            <input name="email" value={this.state.email} onChange={(event) => this.setState({
+            <input name="email" placeholder="Email" value={this.state.email} onChange={(event) => this.setState({
               email: event.currentTarget.value })}/>
             <button>Save</button>
         </form>
