@@ -14,10 +14,10 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.sync()
+    this.syncContacts()
   }
 
-  sync = () => {
+  syncContacts = () => {
     fetch("http://localhost:3000/contacts")
       .then(response => response.json())
       .then((contacts) => {
@@ -57,7 +57,7 @@ class App extends React.Component {
       phoneNumber: "",
       email: ""
     })
-   ).then(this.sync)
+   ).then(this.syncContacts)
  };
 
   deleteContact = (contactId) => {
@@ -107,10 +107,10 @@ render() {
           {this.state.contacts.map(contact => (
               <li key={contact.id}>
                 {contact.firstName} {contact.lastName} {contact.phoneNumber} {contact.email}
-                {this.state.showInputsForContact === contact.id ? <EditInputs/> : null}
 
                 <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
                 <button onClick={() => this.editContact(contact.id)}>Edit</button>
+                {this.state.showInputsForContact === contact.id ? <EditInputs contactId={contact.id} /> : null}
               </li>
             )
           )}
