@@ -47,6 +47,7 @@ updateContact = (event) => {
       <div>
         <form onSubmit={this.updateContact}>
             <input
+              className="edit-input"
               name="firstName"
               placeholder="First name"
               value={this.state.firstName}
@@ -55,6 +56,7 @@ updateContact = (event) => {
             />
 
             <input
+              className="edit-input"
               name="lastName"
               placeholder="Last name"
               value={this.state.lastName}
@@ -63,6 +65,7 @@ updateContact = (event) => {
             />
 
             <input
+              className="edit-input"
               name="phoneNumber"
               placeholder="Phone number"
               value={this.state.phoneNumber}
@@ -71,6 +74,7 @@ updateContact = (event) => {
             />
 
             <input
+              className="edit-input"
               name="email"
               placeholder="Email"
               value={this.state.email}
