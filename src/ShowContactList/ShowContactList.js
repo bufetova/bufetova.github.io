@@ -18,9 +18,12 @@ const Button = styled.button`
 const Li = styled.li`
   list-style-type: circle;
   padding-bottom: 10px;
-  
+`;
+
+const Span = styled.span`
     &:hover {
-      font-size: 17px;
+      font-weight: bolder;
+      color: #3f3f3f;
     }
 `;
 
@@ -55,7 +58,7 @@ class ShowContactList extends React.Component {
       <ul>
         {contactList.map(contact => (
           <Li key={contact.id}>
-            {contact.firstName} {contact.lastName} {contact.phoneNumber} {contact.email}
+            <Span> {contact.firstName} {contact.lastName} {contact.phoneNumber} {contact.email} </Span>
 
             <Button onClick={() => this.deleteContact(contact.id)}>Delete</Button>
             <Button onClick={() => this.editContact(contact.id)}>Edit</Button>
