@@ -7,7 +7,7 @@ import UpdateContact from '../UpdateContact/UpdateContact.js'
 const Button = styled.button`
   margin-left: 3px;
   border-radius: 3px;
-  border: 4px solid white;
+  border: 2px solid white;
   background: #dfcbd4;
   
     &:hover {
