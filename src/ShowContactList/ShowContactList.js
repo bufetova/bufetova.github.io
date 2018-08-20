@@ -1,7 +1,28 @@
 import React from 'react'
 import './ShowContactList.css'
+import styled from 'styled-components'
 import UpdateContact from '../UpdateContact/UpdateContact.js'
 
+
+const Button = styled.button`
+  margin-left: 3px;
+  border-radius: 3px;
+  border: 4px solid white;
+  background: #dfcbd4;
+  
+    &:hover {
+      background: #c097aa;
+    }
+`;
+
+const Li = styled.li`
+  list-style-type: circle;
+  padding-bottom: 10px;
+  
+    &:hover {
+      font-size: 17px;
+    }
+`;
 
 class ShowContactList extends React.Component {
 
@@ -33,18 +54,18 @@ class ShowContactList extends React.Component {
     return (
       <ul>
         {contactList.map(contact => (
-          <li key={contact.id}>
+          <Li key={contact.id}>
             {contact.firstName} {contact.lastName} {contact.phoneNumber} {contact.email}
 
-            <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
-            <button onClick={() => this.editContact(contact.id)}>Edit</button>
+            <Button onClick={() => this.deleteContact(contact.id)}>Delete</Button>
+            <Button onClick={() => this.editContact(contact.id)}>Edit</Button>
             {this.state.showInputsForContact !== contact.id ? null :
               <UpdateContact
                 contactId={contact.id}
                 syncContacts={this.props.syncContacts}
               />
             }
-          </li>
+          </Li>
           )
         )}
         </ul>

@@ -1,8 +1,8 @@
-h1 {
-  font-size: 25px;
-  margin-left: 15px;
+* {
+  font-family: 'Montserrat', sans-serif;
 }
 
-input {
-  margin-left: 15px;
+body {
+  background: #ffe5e2;
 }
+

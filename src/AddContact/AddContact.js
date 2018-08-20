@@ -1,5 +1,39 @@
 import React from 'react'
+import styled from 'styled-components'
 import './AddContact.css'
+
+const Input = styled.input`
+  border: none;
+  border-bottom: 3px solid grey;
+  margin-bottom: 30px;
+  background: transparent;
+  width: 200px;
+  height: 30px; 
+  margin-left: 15px;
+  
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      border-color: #c097aa;
+      transition: 0.4s ease-in-out;
+    }  
+`;
+
+const Button = styled.button`
+  height:30px;
+  margin-left: 10px;
+  background-color: light-grey;
+  border: 4px solid white;
+  
+    &:hover {
+      background-color: #a6a6a6;
+    }
+`;
+
+const P = styled.p`
+  font-size: 18px;
+`;
+
 class AddContact extends React.Component {
 
   state = {
@@ -47,10 +81,10 @@ class AddContact extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <p>Enter your data: </p>
+        <P>Enter your data:</P>
         <form onSubmit={this.handleSubmit}>
 
-          <input
+          <Input
             name="firstName"
             placeholder="First name"
             value={this.state.firstName}
@@ -58,7 +92,7 @@ class AddContact extends React.Component {
               firstName: event.currentTarget.value})}
           />
 
-          <input
+          <Input
             name="lastName"
             placeholder="Last name"
             value={this.state.lastName}
@@ -66,7 +100,7 @@ class AddContact extends React.Component {
               lastName: event.currentTarget.value})}
           />
 
-          <input
+          <Input
             name="phoneNumber"
             placeholder="Phone number"
             value={this.state.phoneNumber}
@@ -74,7 +108,7 @@ class AddContact extends React.Component {
               phoneNumber: event.currentTarget.value})}
           />
 
-          <input
+          <Input
             name="email"
             placeholder="Email"
             value={this.state.email}
@@ -82,7 +116,7 @@ class AddContact extends React.Component {
               email: event.currentTarget.value})}
           />
 
-          <button>Add contact</button>
+          <Button>Add contact</Button>
         </form>
       </React.Fragment>
     )
