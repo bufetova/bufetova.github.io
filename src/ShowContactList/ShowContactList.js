@@ -12,7 +12,7 @@ const Button = styled.button`
   transition: 0.5s;
   
     &:hover {
-      background: #c097aa;
+      background: white;
     }
 `;
 

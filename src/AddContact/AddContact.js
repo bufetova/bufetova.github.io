@@ -1,6 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import './AddContact.css'
+import styled from 'styled-components'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 const Input = styled.input`
   border: none;
@@ -82,6 +83,7 @@ class AddContact extends React.Component {
 
   render() {
     return (
+      <Router>
       <React.Fragment>
         <P>Enter your data:</P>
         <form onSubmit={this.handleSubmit}>
@@ -119,8 +121,10 @@ class AddContact extends React.Component {
           />
 
           <Button>Add contact</Button>
+
         </form>
       </React.Fragment>
+      </Router>
     )
   }
 }
