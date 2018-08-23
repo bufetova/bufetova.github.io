@@ -1,7 +1,9 @@
 import React from 'react'
 import './AddContact.css'
 import styled from 'styled-components'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+
 
 const Input = styled.input`
   border: none;
@@ -45,6 +47,7 @@ class AddContact extends React.Component {
     phoneNumber: "",
     email: "",
     contacts: [],
+    redirect: false
   };
 
    handleSubmit = event => {
@@ -79,9 +82,17 @@ class AddContact extends React.Component {
        email: ""
      })
     ).then(this.props.syncContacts)
+     .then(() => this.setState({
+       redirect: true
+     }))
   };
 
   render() {
+
+    if (this.state.redirect) {
+      return <Redirect to="/showContactList" />
+    }
+
     return (
       <Router>
       <React.Fragment>
@@ -121,7 +132,6 @@ class AddContact extends React.Component {
           />
 
           <Button>Add contact</Button>
-
         </form>
       </React.Fragment>
       </Router>

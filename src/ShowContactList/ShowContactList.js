@@ -16,6 +16,12 @@ const Button = styled.button`
     }
 `;
 
+const P = styled.p`
+  font-size: 18px;
+  font-style: normal;
+  margin-left: 30px;
+`;
+
 const Li = styled.li`
   list-style-type: circle;
   padding-bottom: 10px;
@@ -56,6 +62,8 @@ class ShowContactList extends React.Component {
   render () {
     const contactList = this.props.getContacts;
     return (
+      <React.Fragment>
+      <P> Contacts: </P>
       <ul>
         {contactList.map(contact => (
           <Li key={contact.id}>
@@ -73,6 +81,7 @@ class ShowContactList extends React.Component {
           )
         )}
         </ul>
+      </React.Fragment>
     )
   }
 }

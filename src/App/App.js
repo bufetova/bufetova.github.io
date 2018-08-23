@@ -23,12 +23,15 @@ const H1 = styled.h1`
     }
 `;
 
+const Div = styled.div`
+text-align: center;
+`
+
 const StyledLink = styled(Link)`
   margin-left: 20px;
   text-decoration: none;
   color: #b83b3b;
- 
-  
+    
     &:hover {
       font-weight: 600;
     }
@@ -65,11 +68,11 @@ render() {
      <Router>
       <div className="App">
         <H1>Contact List</H1>
-
-        <StyledLink to="/">Main Page</StyledLink>
-        <StyledLink to="/addContact">Add Contact</StyledLink>
-        <StyledLink to="/showContactList">Contact List</StyledLink>
-
+        <Div>
+          <StyledLink to="/">Main Page</StyledLink>
+          <StyledLink to="/addContact">Add Contact</StyledLink>
+          <StyledLink to="/showContactList">Contact List</StyledLink>
+        </Div>
         <Route exact path="/" render={() => <P> Hello! This is your first React contact list! <br/> Please navigate with the nav bar above :) </P>}/>
         <Route path="/addContact"
                render={() =>
