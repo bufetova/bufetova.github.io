@@ -1,6 +1,37 @@
 import React from 'react'
 import './UpdateContact.css'
+import styled from 'styled-components'
 
+
+const Input = styled.input`
+  border: none;
+  border-bottom: 3px solid grey;
+  margin-bottom: 15px;
+  background: transparent;
+  width: 200px;
+  height: 30px; 
+  margin-left: 5px;
+  
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      border-color: #c097aa;
+      transition: 0.4s ease-in-out;
+    }  
+`;
+
+const Button = styled.button`
+  height:30px;
+  margin-left: 10px;
+  background-color: light-grey;
+  border: 3px solid white;
+  transition: 0.5s;
+  font-weight: bolder;
+  
+    &:hover {
+      background-color: #a6a6a6;
+    }
+`;
 
 class UpdateContact extends React.Component {
 
@@ -46,7 +77,7 @@ updateContact = (event) => {
     return (
       <div>
         <form onSubmit={this.updateContact}>
-            <input
+            <Input
               className="edit-input"
               name="firstName"
               placeholder="First name"
@@ -55,7 +86,7 @@ updateContact = (event) => {
               firstName: event.currentTarget.value})}
             />
 
-            <input
+            <Input
               className="edit-input"
               name="lastName"
               placeholder="Last name"
@@ -64,7 +95,7 @@ updateContact = (event) => {
               lastName: event.currentTarget.value})}
             />
 
-            <input
+            <Input
               className="edit-input"
               name="phoneNumber"
               placeholder="Phone number"
@@ -73,7 +104,7 @@ updateContact = (event) => {
               phoneNumber: event.currentTarget.value})}
             />
 
-            <input
+            <Input
               className="edit-input"
               name="email"
               placeholder="Email"
@@ -82,7 +113,7 @@ updateContact = (event) => {
               email: event.currentTarget.value})}
             />
 
-            <button>Save</button>
+            <Button>Save</Button>
         </form>
       </div>
     )}

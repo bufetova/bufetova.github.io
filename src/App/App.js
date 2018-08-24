@@ -25,7 +25,7 @@ const H1 = styled.h1`
 
 const Div = styled.div`
 text-align: center;
-`
+`;
 
 const StyledLink = styled(Link)`
   margin-left: 20px;
